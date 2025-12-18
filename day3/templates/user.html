@@ -1,0 +1,40 @@
+<!-- templates/user.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>用户页面</title>
+</head>
+<body>
+    {# 这是Jinja2注释，不会出现在HTML中 #}
+
+    <!-- 1. 变量输出 -->
+    <h1>欢迎，{{ username }}!</h1>
+
+    <!-- 2. 条件判断 -->
+    {% if is_admin %}
+        <p>您有管理员权限</p>
+    {% else %}
+        <p>您是普通用户</p>
+    {% endif %}
+
+    <!-- 3. 循环 -->
+    <ul>
+        {% for item in items %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- 4. 过滤器 -->
+    <p>用户名大写: {{ username|upper }}</p>
+    <p>列表长度: {{ items|length }}</p>
+    <p>默认值: {{ variable_not_exist|default('默认值') }}</p>
+
+    <!-- 5. 转义 -->
+    <p>安全输出HTML: {{ html_content|safe }}</p>
+    <p>不转义: {{ html_content }}</p>
+
+    <!-- 6. 在模板中使用自定义过滤器 -->
+    {# <p>{{ user.created_at|datetimeformat }}</p> #}
+    {# <p>{{ phone_number|phone_format }}</p> #}
+</body>
+</html>
