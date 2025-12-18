@@ -1,0 +1,28 @@
+<!-- templates/add_contact.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<h1>添加新联系人</h1>
+
+<form method="post" class="contact-form">
+    <div class="form-group">
+        <label for="name">姓名 *</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+
+    <div class="form-group">
+        <label for="phone">电话 *</label>
+        <input type="text" id="phone" name="phone" required>
+    </div>
+
+    <div class="form-group">
+        <label for="email">邮箱</label>
+        <input type="email" id="email" name="email">
+    </div>
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-primary">添加联系人</button>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">取消</a>
+    </div>
+</form>
+{% endblock %}

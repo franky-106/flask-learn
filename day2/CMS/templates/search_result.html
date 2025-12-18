@@ -1,0 +1,31 @@
+<!-- templates/search_result.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<h1>搜索结果</h1>
+
+{% if results %}
+    <table class="contacts-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>姓名</th>
+                <th>电话</th>
+                <th>邮箱</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in results %}
+            <tr>
+                <td>{{ result.id }}</td>
+                <td>{{ result.name }}</td>
+                <td>{{ result.phone }}</td>
+                <td>{{ result.email }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p class="no-contacts">联系人不存在</p>
+{% endif %}
+{% endblock %}
