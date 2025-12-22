@@ -1,0 +1,63 @@
+<!-- templates/macros.html -->
+{% macro render_contact_card(contact) %}
+
+<!-- 调试预览时添加这句 -->
+<meta charset="UTF-8">
+
+<div class="contact-card">
+    <div class="contact-avatar">
+        {{ contact.name[0]|upper }}
+    </div>
+    <div class="contact-info">
+        <h3>{{ contact.name }}</h3>
+        <p><i class="icon-phone"></i> {{ contact.phone }}</p>
+        <p><i class="icon-email"></i> {{ contact.email }}</p>
+    </div>
+    <div class="contact-actions">
+        <a href="{{ url_for('edit_contact', id=contact.id) }}" class="btn btn-small">编辑</a>
+        <a href="{{ url_for('delete_contact', id=contact.id) }}"
+           class="btn btn-small btn-danger"
+           onclick="return confirm('确定删除吗？')">删除</a>
+    </div>
+</div>
+{% endmacro %}
+
+{% macro render_pagination(pagination, endpoint) %}
+{% if pagination.pages > 1 %}
+<nav class="pagination">
+    {% if pagination.has_prev %}
+        <a href="{{ url_for(endpoint, page=pagination.prev_num) }}">上一页</a>
+    {% endif %}
+
+    {% for page in pagination.iter_pages() %}
+        {% if page %}
+            {% if page == pagination.page %}
+                <span class="current">{{ page }}</span>
+            {% else %}
+                <a href="{{ url_for(endpoint, page=page) }}">{{ page }}</a>
+            {% endif %}
+        {% else %}
+            <span class="ellipsis">...</span>
+        {% endif %}
+    {% endfor %}
+
+    {% if pagination.has_next %}
+        <a href="{{ url_for(endpoint, page=pagination.next_num) }}">下一页</a>
+    {% endif %}
+</nav>
+{% endif %}
+{% endmacro %}
+
+{% macro render_form_field(field) %}
+<div class="form-group">
+    <label for="{{ field.id }}">{{ field.label.text }}</label>
+    {{ field(class="form-control") }}
+    {% if field.errors %}
+        <div class="form-errors">
+            {% for error in field.errors %}
+                <span class="error">{{ error }}</span>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+{% endmacro %}

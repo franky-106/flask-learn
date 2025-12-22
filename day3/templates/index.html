@@ -1,0 +1,66 @@
+<!-- templates/index.html -->
+
+<!-- 调试预览时添加这句 -->
+<meta charset="UTF-8">
+
+{% extends "base.html" %}
+
+{% block title %}首页 - 我的应用{% endblock %}
+
+{% block styles %}
+    <!-- 添加页面特定的CSS -->
+    <style>
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+    </style>
+{% endblock %}
+
+{% block navbar %}
+    <!-- 可以重写导航栏 -->
+    <div class="container">
+        <a href="{{ url_for('index') }}" class="logo">首页特别导航</a>
+        <div class="nav-links">
+            <a href="{{ url_for('index') }}" class="active">首页</a>
+            <a href="{{ url_for('about') }}">关于</a>
+            <a href="{{ url_for('contact') }}">联系我们</a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <!-- 首页特有内容 -->
+    <section class="hero">
+        <h1>欢迎来到我的应用</h1>
+        <p>这是一个使用Jinja2模板的示例</p>
+        <a href="{{ url_for('dashboard') }}" class="btn btn-primary">进入面板</a>
+    </section>
+
+    <section class="features">
+        <h2>功能特性</h2>
+        <div class="feature-grid">
+            <div class="feature">
+                <h3>快速</h3>
+                <p>基于Flask的高性能Web框架</p>
+            </div>
+            <div class="feature">
+                <h3>安全</h3>
+                <p>内置安全防护机制</p>
+            </div>
+            <div class="feature">
+                <h3>灵活</h3>
+                <p>支持各种扩展和定制</p>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block footer_scripts %}
+    <!-- 添加页面特定的JS -->
+    <script>
+        console.log('首页加载完成');
+    </script>
+{% endblock %}

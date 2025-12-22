@@ -62,3 +62,55 @@ def show_user(username):
 {{ string|replace('old', 'new') }} # 替换
 {{ string|truncate(20) }}    # 截断字符串
 {{ number|round(2) }}        # 四舍五入
+
+
+# Bootstrap前端框架
+Bootstrap是一个流行的前端框架，用于快速开发响应式网站
+它提供了丰富的CSS和JavaScript组件，简化了网页设计和布局
+
+Bootstrap常用组件
+<!-- 按钮 -->
+<button class="btn btn-primary">主要按钮</button>
+<button class="btn btn-secondary">次要按钮</button>
+<button class="btn btn-success">成功按钮</button>
+<button class="btn btn-danger">危险按钮</button>
+<button class="btn btn-warning">警告按钮</button>
+<button class="btn btn-info">信息按钮</button>
+
+<!-- 卡片 -->
+<div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">卡片标题</h5>
+        <p class="card-text">卡片内容。</p>
+        <a href="#" class="btn btn-primary">按钮</a>
+    </div>
+</div>
+
+<!-- 表单 -->
+<form>
+    <div class="mb-3">
+        <label for="email" class="form-label">邮箱地址</label>
+        <input type="email" class="form-control" id="email">
+        <div class="form-text">我们不会分享你的邮箱。</div>
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">密码</label>
+        <input type="password" class="form-control" id="password">
+    </div>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="remember">
+        <label class="form-check-label" for="remember">记住我</label>
+    </div>
+    <button type="submit" class="btn btn-primary">提交</button>
+</form>
+
+<!-- 警告框 -->
+<div class="alert alert-success" role="alert">
+    操作成功！
+</div>
+<div class="alert alert-danger" role="alert">
+    出错了！
+</div>
+
+

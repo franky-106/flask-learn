@@ -1,8 +1,11 @@
 from flask import Flask, render_template
+from flask_bootstrap import Bootstrap
 from datetime import datetime
 
 
 app = Flask(__name__)
+bootstrap = Bootstrap(app)
+
 
 # 后端传递数据到模板
 @app.route('/user/<username>')
